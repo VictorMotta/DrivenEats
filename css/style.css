@@ -37,14 +37,14 @@ header {
 main {
      margin-top: 123px;
      margin-bottom: 120px;
+     
 }
 
 .plates {
-     width: 100%;
      margin-top: 30px;
 }
 
-.plates h1 {
+.titulo-plate {
      font-family: 'Righteous', cursive;
      font-size: 26px;
      font-weight: 400;
@@ -54,56 +54,51 @@ main {
 }
 
 .pedidos-container {
-     width: 100%;
      margin-bottom: 27px;
-     display: flex;
      overflow-x: scroll;
+     display: flex;
+     
 }
 .pedido {
-     width: 172px;
+     width: 174px;
      background-color: #fff;
      box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25);
      border-radius: 9px;
      cursor: pointer;
+     padding: 9px;
      margin-left: 19px;
-     padding-bottom: 13px;
 }
+
 
 .pedido img {
      width: 144px;
-     margin-left: 14px;
-     margin-top: 18px;
+
 }
 
 .pedido h1 {
-     font-family: 'Roboto', sans-serif;
      font-size: 16px;
      font-weight: 700;
      line-height: 19px;
      color:#333333;
-     margin-left: 14px;
      margin-top: 8px;
 }
 
 .pedido h2 {
-     font-family: 'Roboto', sans-serif;
      font-size: 15px;
      font-weight: 300;
      line-height: 18px;
      color:#A6A6A6;
-     margin-left: 14px;
      margin-top: 4px;
 }
 
 .pedido h3 {
-     font-family: 'Roboto', sans-serif;
      font-size: 16px;
      font-weight: 400;
      line-height: 19px;
      color:#000;
-     margin-left: 14px;
      margin-top: 9px;
 }
+
 
 footer {
      width: 100%;
