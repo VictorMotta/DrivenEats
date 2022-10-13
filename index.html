@@ -18,131 +18,93 @@
           <div class="plates">
                <h1 class="titulo-plate">Primeiro, seu prato</h1>
                <div class="pedidos-container">
-                    <div class="pedido">
+                    <div  onclick="escolherPrimeiroPrato();" class="pedido pedido-first-plate ">
                          
                               <img src="./img/frango_yin_yang.png">
                               <h1>Frango Yin Yang</h1>
                               <h2>Um pouco de batata, um pouco de salada</h2>
-                              <h3>R$ 14,90</h3>
+                              <h3>R$ <span>14,90</span></h3>
                          
                     </div>
-                    <div class="pedido">
+                    <div  onclick="escolherSegundoPrato();" class="pedido pedido-first-plate ">
                        
-                              <img src="./img/frango_yin_yang.png">
-                              <h1>Frango Yin Yang</h1>
-                              <h2>Um pouco de batata, um pouco de salada</h2>
-                              <h3>R$ 14,90</h3>
+                              <img src="./img/feijoada.jpg">
+                              <h1>Feijoada</h1>
+                              <h2>Um feijão delicioso, com carne seca e calabresa</h2>
+                              <h3>R$ <span>27,90</span></h3>
                          
                     </div>
-                    <div class="pedido">
+                    <div  onclick="escolherTerceiroPrato() ;" class="pedido pedido-first-plate ">
                          <div class="conteudo">
-                              <img src="./img/frango_yin_yang.png">
-                              <h1>Frango Yin Yang</h1>
-                              <h2>Um pouco de batata, um pouco de salada</h2>
-                              <h3>R$ 14,90</h3>
+                              <img src="./img/frango-assado.jpg">
+                              <h1>Frango assado</h1>
+                              <h2>Um frango assado dourado, com batata</h2>
+                              <h3>R$ <span>39,90</span></h3>
                          </div>
                     </div>
-                    <div class="pedido">
-                         
-                              <img src="./img/frango_yin_yang.png">
-                              <h1>Frango Yin Yang</h1>
-                              <h2>Um pouco de batata, um pouco de salada</h2>
-                              <h3>R$ 14,90</h3>
-                         
-                    </div>
-                    <div class="pedido">
-                         
-                              <img src="./img/frango_yin_yang.png">
-                              <h1>Frango Yin Yang</h1>
-                              <h2>Um pouco de batata, um pouco de salada</h2>
-                              <h3>R$ 14,90</h3>
-                        
-                    </div>
+
                </div>
           </div>
           <!-- Fim primeira div Plates -->
           <div class="plates">
                <h1 class="titulo-plate">Agora, sua bebida</h1>
                <div class="pedidos-container">
-                    <div class="pedido">
+                    <div onclick="escolherPrimeiroDrink();" class="pedido pedido-second-plate">
                          <img src="./img/coquinha_gelada.png">
                          <h1>Coquinha gelada</h1>
                          <h2>Lata de 350ml</h2>
-                         <h3>R$ 4,90</h3>
+                         <h3>R$ <span>4,90</span></h3>
                     </div>
-                    <div class="pedido">
-                         <img src="./img/coquinha_gelada.png">
-                         <h1>Coquinha gelada</h1>
-                         <h2>Lata de 350ml</h2>
-                         <h3>R$ 4,90</h3>
+                    <div onclick="escolherSegundoDrink();" class="pedido pedido-second-plate">
+                         <img src="./img/agua-mineral.jpg">
+                         <h1>Água s/ Gás</h1>
+                         <h2>Água mineral sem gás 500ml</h2>
+                         <h3>R$ <span>2,90</span></h3>
                     </div>
-                    <div class="pedido">
-                         <img src="./img/coquinha_gelada.png">
-                         <h1>Coquinha gelada</h1>
-                         <h2>Lata de 350ml</h2>
-                         <h3>R$ 4,90</h3>
+                    <div onclick="escolherTerceiroDrink();" class="pedido pedido-second-plate">
+                         <img src="./img/guaraviton.jpg">
+                         <h1>Guaraviton</h1>
+                         <h2>Guaraviton de 500ml</h2>
+                         <h3>R$ <span>7,90</span></h3>
                     </div>
-                    <div class="pedido">
-                         <img src="./img/coquinha_gelada.png">
-                         <h1>Coquinha gelada</h1>
-                         <h2>Lata de 350ml</h2>
-                         <h3>R$ 4,90</h3>
-                    </div>
-                    <div class="pedido">
-                         <img src="./img/coquinha_gelada.png">
-                         <h1>Coquinha gelada</h1>
-                         <h2>Lata de 350ml</h2>
-                         <h3>R$ 4,90</h3>
-                    </div>
+                    
                </div>
           </div>
           <!-- Fim segunda div plates  -->
           <div class="plates">
                <h1 class="titulo-plate">Por fim, sua sobremesa</h1>
                <div class="pedidos-container">
-                    <div class="pedido">
+                    <div onclick="escolherPrimeiraSobremesa();" class="pedido pedido-third-plate">
                          <img src="./img/pudim.png">
                          <h1>Pudim</h1>
                          <h2>Pudim delicioso</h2>
-                         <h3>R$ 7,90</h3>
+                         <h3>R$ <span>7,90</span></h3>
                     </div>
-                    <div class="pedido">
-                         <img src="./img/pudim.png">
-                         <h1>Pudim</h1>
-                         <h2>Pudim delicioso</h2>
-                         <h3>R$ 7,90</h3>
+                    <div onclick="escolherSegundaSobremesa();" class="pedido pedido-third-plate">
+                         <img src="./img/petit-gateau.jpeg">
+                         <h1>Petit gateau</h1>
+                         <h2>Um Petit gateau muito delicioso com sorvete.</h2>
+                         <h3>R$ <span>15,90</span></h3>
                     </div>
-                    <div class="pedido">
-                         <img src="./img/pudim.png">
-                         <h1>Pudim</h1>
-                         <h2>Pudim delicioso</h2>
-                         <h3>R$ 7,90</h3>
+                    <div onclick="escolherTerceiraSobremesa();" class="pedido pedido-third-plate">
+                         <img src="./img/brownie.jpg">
+                         <h1>Brownie</h1>
+                         <h2>Brownie muito delicioso</h2>
+                         <h3>R$ <span>10,90</span></h3>
                     </div>
-                    <div class="pedido">
-                         <img src="./img/pudim.png">
-                         <h1>Pudim</h1>
-                         <h2>Pudim delicioso</h2>
-                         <h3>R$ 7,90</h3>
-                    </div>
-                    <div class="pedido">
-                         <img src="./img/pudim.png">
-                         <h1>Pudim</h1>
-                         <h2>Pudim delicioso</h2>
-                         <h3>R$ 7,90</h3>
-                    </div>
+               
                </div>
           </div>
           <!-- Fim terceira div plates  -->
 
-
      </main>
 
      <footer>
-          <div class="finalizar-pedido">
+          <div onclick="finalizarPedido()" class="finalizar-pedido">
                <h1>Seleciona os 3 itens para fechar o pedido</h1>
           </div>
      </footer>
 
-     <script src="./js/script.js"></script>
+     <script src="./js/script.js" defer></script>
 </body>
 </html>
