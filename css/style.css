@@ -174,3 +174,89 @@ footer {
      display: none;
 }
 
+.background-popup {
+     position: fixed;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+}
+.hidden-popup {
+     width: 100%;
+     height: 100%;
+     background: rgba(255, 255, 255, 0.8);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+
+.popup {
+     width: 95%;
+     height: 50%;
+     background-color: #50D074;
+     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
+     border-radius: 9px;
+     display: flex;
+     justify-content: center;
+     flex-direction: column;
+     align-items: center;
+}
+
+.popup h1{
+     color: #fff;
+     font-size: 22px;
+     font-weight: 700;
+     line-height: 26px;
+     text-align: center;
+     margin-bottom: 28px;
+}
+
+.escrita-nome-valor {
+     width: 80%;
+     display: flex;
+     justify-content: space-between;
+     margin-bottom: 13px;
+}
+.escrita-nome-valor h1{
+     font-weight: 400;
+     margin-bottom: 0;
+}
+.total {
+     width: 80%;
+     display: flex;
+     justify-content: space-between;
+}
+.total h1{
+     letter-spacing: 0.018em;
+}
+
+.popup button {
+     width: 80%;
+     height: 52px;
+     border: none;
+     background-color: #fff;
+     border-radius: 100px;
+     color: #50D074;
+     font-size: 22px;
+     letter-spacing: 0.018em;
+     text-align: center;
+     font-weight: 700;
+     transition: 0.5s;
+}
+
+.popup button:hover {
+     background-color: #86e09fc0;
+     color: #fff;
+}
+.popup h2 { 
+     cursor: pointer;
+     font-size: 20px;
+     font-weight: 700;
+     color: #fff;
+     text-align: center;
+     letter-spacing: 0.018em;
+     margin-top: 20px;
+}
+
+
+
