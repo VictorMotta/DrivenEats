@@ -11,6 +11,10 @@ const valorPratoFinalizarPedido = document.querySelector("#valor-prato");
 const valorBebidaFinalizarPedido = document.querySelector("#valor-bebida");
 const valorSobremesaFinalizarPedido = document.querySelector("#valor-sobremesa");
 const valorTotalFinalizarPedido = document.querySelector("#total-valor");
+const containerInfoCliente = document.querySelector(".informacoes-cliente-container");
+const inputNomeCliente = document.querySelector("#nome-cliente");
+const inputEnderecoCliente = document.querySelector("#endereco-cliente");
+
 
 
 let prato;
@@ -23,6 +27,8 @@ let pratoSelecionado = false;
 let bebidaSelecionada = false;
 let sobremesaSelecionada = false;
 let qtd = 0;
+let nome;
+let endereco;
 
 
 
@@ -47,6 +53,31 @@ function escolheBorda(pedidoAdiciona,pedidoRemove1, pedidoRemove2,selecionado){
      }
      
 }
+
+function alteraQtdPedido(){
+     console.log(pratoSelecionado);
+     let quantidadeSelecionado = buttomFinalizarPedido.querySelector("span");
+
+     if (pratoSelecionado === true || bebidaSelecionada === true || sobremesaSelecionada === true) {
+          qtd = 1;
+          
+     }
+     if (pratoSelecionado === true && bebidaSelecionada === true || bebidaSelecionada === true && sobremesaSelecionada === true || sobremesaSelecionada === true && pratoSelecionado === true){
+          qtd = 2;
+     }    
+
+     if (pratoSelecionado === false && bebidaSelecionada === false && sobremesaSelecionada === false){
+          qtd = 0;
+     }
+
+
+
+     console.log(qtd)
+     
+     quantidadeSelecionado.innerHTML = qtd;
+     
+}
+
 function escolherPrimeiroPrato() {
      let pratoList = pedidoFirstPlate[0].getElementsByTagName("h1");
      prato = pratoList[0].innerText;
@@ -256,46 +287,10 @@ function escolherTerceiraSobremesa(){
      
 }
 
-function alteraQtdPedido(){
-     console.log(pratoSelecionado);
-     let quantidadeSelecionado = buttomFinalizarPedido.querySelector("span");
-
-     if (pratoSelecionado === true || bebidaSelecionada === true || sobremesaSelecionada === true) {
-          qtd = 1;
-          
-     }
-     if (pratoSelecionado === true && bebidaSelecionada === true || bebidaSelecionada === true && sobremesaSelecionada === true || sobremesaSelecionada === true && pratoSelecionado === true){
-          qtd = 2;
-     }    
-
-     if (pratoSelecionado === false && bebidaSelecionada === false && sobremesaSelecionada === false){
-          qtd = 0;
-     }
 
 
 
-     console.log(qtd)
-     
-     quantidadeSelecionado.innerHTML = qtd;
-     
-}
 
-
-function popupFinalizarPedido(){
-     nomePratoFinalizarPedido.innerHTML = prato;
-     valorPratoFinalizarPedido.innerHTML = "R$ " + valorPrato.toFixed(2);
-     nomeBebidaFinalizarPedido.innerHTML =  bebida;
-     valorBebidaFinalizarPedido.innerHTML = "R$ " + valorBebida.toFixed(2);
-     nomeSobremesaFinalizarPedido.innerHTML = sobremesa;
-     valorSobremesaFinalizarPedido.innerHTML = "R$ " + valorSobremesa.toFixed(2);
-     valorTotalFinalizarPedido.innerHTML = "R$ " + calculaValores().toFixed(2);
-
-     popupFinalizarPedidoText.classList.remove("hidden");
-}
-
-function popupCancelarPedido(){
-     popupFinalizarPedidoText.classList.add("hidden");
-}
 
 function prosseguirPedido(){
 
@@ -318,6 +313,8 @@ function zeraTudo(){
      pedidoThirdPlate[1].classList.remove("border-check");
      pedidoThirdPlate[2].classList.remove("border-check");
      
+     inputNomeCliente.value = "";
+     inputEnderecoCliente.value = "";
      pratoSelecionado = false;
      bebidaSelecionada = false;
      sobremesaSelecionada = false;
@@ -333,21 +330,28 @@ function zeraTudo(){
 
 }
 
+function infoClientes(){
+     containerInfoCliente.classList.remove("hidden");
+     popupCancelarPedido(popupFinalizarPedidoText);
+}
+
 function finalizarPedido(){
-     let nome;
-     let endereço;
+     nome = inputNomeCliente.value;
+     endereco = inputEnderecoCliente.value;
      let mensagem;
      let valorTotal = calculaValores().toFixed(2);
-     nome = prompt("Qual seu nome?");
-     endereço = prompt("Qual seu endereço?");
+     
+     
           
-     if (nome === "" || endereço === "" || nome === null || endereço === null){
+     if (nome === "" || endereco === "" || nome === null || endereco === null){
           mensagem =  `
           Olá, gostaria de fazer o pedido:
           - Prato: ${prato}
           - Bebida: ${bebida}
           - Sobremesa: ${sobremesa}
           Total: R$ ${valorTotal}`
+
+          window.open(`https://wa.me/+5521999999999?text=${encodeURIComponent(mensagem)}`);
      }else {
           mensagem = `
           Olá, gostaria de fazer o pedido:
@@ -358,12 +362,35 @@ function finalizarPedido(){
           
           
           Nome: ${nome}
-          Endereço: ${endereço}`
+          Endereço: ${endereco}`
+          
+          window.open(`https://wa.me/+5521999999999?text=${encodeURIComponent(mensagem)}`);
      }
           
 
-     window.open(`https://wa.me/+5521999999999?text=${encodeURIComponent(mensagem)}`);
+     
      alert("Pedido Finalizado!");
-     popupCancelarPedido();
+     popupCancelarPedido(containerInfoCliente);
      zeraTudo();
 }
+
+function popupCancelarPedido(popup){
+     popup.classList.add("hidden");
+}
+
+
+
+function popupFinalizarPedido(){
+     nomePratoFinalizarPedido.innerHTML = prato;
+     valorPratoFinalizarPedido.innerHTML = "R$ " + valorPrato.toFixed(2);
+     nomeBebidaFinalizarPedido.innerHTML =  bebida;
+     valorBebidaFinalizarPedido.innerHTML = "R$ " + valorBebida.toFixed(2);
+     nomeSobremesaFinalizarPedido.innerHTML = sobremesa;
+     valorSobremesaFinalizarPedido.innerHTML = "R$ " + valorSobremesa.toFixed(2);
+     valorTotalFinalizarPedido.innerHTML = "R$ " + calculaValores().toFixed(2);
+
+     popupFinalizarPedidoText.classList.remove("hidden");
+}
+
+
+

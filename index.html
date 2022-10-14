@@ -110,29 +110,50 @@
 
      <div id="popup" class="background-popup hidden">
           <div class="hidden-popup">
-          <div class="popup">
-               <h1>Confirme seu pedido</h1>
-               <div class="escrita-nome-valor">
-                    <h1 id="nome-prato">Frango Yin Yang</h1>
-                    <h1 id="valor-prato">14,90</h1>
+               <div class="popup">
+                    <h1>Confirme seu pedido</h1>
+                    <div class="escrita-nome-valor">
+                         <h1 id="nome-prato">Frango Yin Yang</h1>
+                         <h1 id="valor-prato">14,90</h1>
+                    </div>
+                    <div class="escrita-nome-valor">
+                         <h1 id="nome-bebida">Frango Yin Yang</h1>
+                         <h1 id="valor-bebida">14,90</h1>
+                    </div>
+                    <div class="escrita-nome-valor">
+                         <h1 id="nome-sobremesa">Frango Yin Yang</h1>
+                         <h1 id="valor-sobremesa">14,90</h1>
+                    </div>
+                    <div class="total">
+                         <h1>TOTAL</h1>
+                         <h1 id="total-valor">27,70</h1>
+                    </div>
+                    <button onclick="infoClientes()">Tudo certo, pode pedir!</button>
+                    <h2 onclick="popupCancelarPedido(popupFinalizarPedidoText)" >Cancelar</h2>
                </div>
-               <div class="escrita-nome-valor">
-                    <h1 id="nome-bebida">Frango Yin Yang</h1>
-                    <h1 id="valor-bebida">14,90</h1>
+          </div>     
+     </div>
+     <!-- Fim div background-popup  -->
+     <div class="informacoes-cliente-container hidden">
+          <div class="hidden-informacoes-cliente-container">
+               <div class="informacoes-cliente">
+                    <h1>Cadastro do Cliente</h1>
+                    <div>
+                         <label for="nome-cliente">Nome:</label>
+                         <input id="nome-cliente" type="text" placeholder="Digite seu nome...">
+                    </div>
+                    <div>
+                         <label for="endereco-cliente">Endereço:</label>
+                         <input id="endereco-cliente" type="text" placeholder="Digite seu endereço...">
+                    </div>
+                    <div class="buttons-info-cliente">
+                         <button onclick="popupCancelarPedido(containerInfoCliente)" id="cancela-pedido-info-cliente" >Cancelar Pedido</button>
+                         <button onclick="finalizarPedido()" id="envia-pedido-nome-ende-cliente">Enviar</button>
+                    </div>
                </div>
-               <div class="escrita-nome-valor">
-                    <h1 id="nome-sobremesa">Frango Yin Yang</h1>
-                    <h1 id="valor-sobremesa">14,90</h1>
-               </div>
-               <div class="total">
-                    <h1>TOTAL</h1>
-                    <h1 id="total-valor">27,70</h1>
-               </div>
-               <button onclick="finalizarPedido()">Tudo certo, pode pedir!</button>
-               <h2 onclick="popupCancelarPedido()" >Cancelar</h2>
-          </div>
           </div>
      </div>
+     
 
      <script src="./js/script.js" defer></script>
 </body>

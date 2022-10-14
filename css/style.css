@@ -172,6 +172,7 @@ footer {
 
 .hidden {
      display: none;
+     visibility: hidden;
 }
 
 .background-popup {
@@ -258,5 +259,94 @@ footer {
      margin-top: 20px;
 }
 
+.informacoes-cliente-container{
+     position: fixed;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+}
+
+.hidden-informacoes-cliente-container{
+     width: 100%;
+     height: 100%;
+     background: rgba(255, 255, 255, 0.8);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
 
 
+.informacoes-cliente{
+     width: 95%;
+     height: 50%;
+     background-color: #50D074;
+     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
+     border-radius: 9px;
+     display: flex;
+     justify-content: center;
+     flex-direction: column;
+     align-items: center;
+}
+
+
+.informacoes-cliente h1{
+     color: #fff;
+     font-size: 22px;
+     font-weight: 700;
+     line-height: 26px;
+     text-align: center;
+     margin-bottom: 28px;
+}
+
+.informacoes-cliente label{
+     color: #fff;
+     font-size: 22px;
+     font-weight: 500;
+     line-height: 26px;
+     margin-bottom: 10px;
+}
+
+.informacoes-cliente input {
+     width: 100%;
+     height: 30px;
+     margin-bottom: 20px;
+     border: none;
+     border-radius: 100px;
+     margin-top: 10px;
+}
+
+.informacoes-cliente input::placeholder{
+     color: #50D074;
+     padding-left: 5%;
+     font-size: 15px;
+     font-weight: 400;
+}
+
+.informacoes-cliente div {
+     width: 90%;
+}
+
+.buttons-info-cliente {
+     margin-top: 30px;
+     display: flex;
+     justify-content: space-between;
+}
+
+.buttons-info-cliente button {
+     border: none;
+     width: 45%;
+     height: 40px;
+     background-color: #fff;
+     color: #50D074;
+     font-size: 18px;
+     border-radius: 100px;
+     font-weight: 700;
+     transition: 0.5s;
+}
+.buttons-info-cliente button:hover{
+
+     background-color: #50D074;
+     color: #fff;
+
+}
