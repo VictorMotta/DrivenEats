@@ -312,6 +312,7 @@ function popupFinalizarPedido(){
 
      popupFinalizarPedidoText.classList.remove("hidden");
 
+
 }
 
 function finalizarPedido(){
@@ -327,7 +328,7 @@ function finalizarPedido(){
           alert("Faltou selecionar um item");
      }else {
           popupFinalizarPedido()
-
+     }
           // nome = prompt("Qual seu nome?");
           // endereço = prompt("Qual seu endereço?");
           
@@ -353,7 +354,7 @@ function finalizarPedido(){
           
 
           // window.open(`https://wa.me/+5521999999999?text=${encodeURIComponent(mensagem)}`);
-     }
+     
 
     
      
