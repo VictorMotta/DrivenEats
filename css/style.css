@@ -137,6 +137,9 @@ footer {
      background-color: #CBCBCB;
      border-radius: 50px;
      padding: 8px 15%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
 }
 
 .finalizar-pedido h1 {
@@ -146,5 +149,28 @@ footer {
      text-align: center;
      color: #fff;
      letter-spacing: 0.018em;
+}
+
+.finaliza-depois {
+     width: 85%;
+     height: 61px;
+     border-radius: 50px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     padding: 8px 15%;
+     background-color: #32B72F;
+}
+.finaliza-depois h1 {
+     font-size: 20px;
+     font-weight: 400;
+     line-height: 24px;
+     text-align: center;
+     color: #fff;
+     letter-spacing: 0.018em;
+}
+
+.hidden {
+     display: none;
 }
 

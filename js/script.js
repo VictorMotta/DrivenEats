@@ -2,46 +2,40 @@ const pedidoFirstPlate = document.querySelectorAll(".pedido-first-plate");
 const pedidoSecondPlate = document.querySelectorAll(".pedido-second-plate");
 const pedidoThirdPlate = document.querySelectorAll(".pedido-third-plate");
 const buttomFinalizarPedido = document.querySelector(".finalizar-pedido");
+const buttomFinalizarPedidoDepois = document.querySelector(".finaliza-depois");
+
 let prato;
 let bebida;
 let sobremesa;
 let valorPrato;
 let valorBebida;
 let valorSobremesa;
-let pratoSelecionado = false;
-let bebidaSelecionada = false;
-let sobremesaSelecionada = false;
+let pratoSelecionado;
+let bebidaSelecionada;
+let sobremesaSelecionada;
 let qtd = 0;
 
-function buttomFinalizarPedidoAlteraCor() {
-     buttomFinalizarPedido.style.backgroundColor = "#32B72F";
-}
 
 
-function calculaValores() {
-     
+function calculaValores() {    
      return valorPrato + valorBebida + valorSobremesa;
-
 }
 
 
 function escolheBorda(pedidoAdiciona,pedidoRemove1, pedidoRemove2,selecionado){
      if (pedidoAdiciona.classList.contains("border-check")){
-          selecionado = false;
           pedidoAdiciona.classList.toggle("border-check");
+          return selecionado = false;
+          
      }
      else {
           pedidoAdiciona.classList.add("border-check");
           pedidoRemove1.classList.remove("border-check");
           pedidoRemove2.classList.remove("border-check");
-          selecionado = true;
-     }
+          return selecionado = true;
 
-     console.log(selecionado)
-     if (pratoSelecionado && bebidaSelecionada && sobremesaSelecionada) {
-          buttomFinalizarPedidoAlteraCor();
      }
-
+     
 }
 function escolherPrimeiroPrato() {
      let pratoList = pedidoFirstPlate[0].getElementsByTagName("h1");
@@ -53,8 +47,18 @@ function escolherPrimeiroPrato() {
      console.log(valorPrato);
      
 
-     escolheBorda(pedidoFirstPlate[0],pedidoFirstPlate[1],pedidoFirstPlate[2],pratoSelecionado);
+     pratoSelecionado = escolheBorda(pedidoFirstPlate[0],pedidoFirstPlate[1],pedidoFirstPlate[2],pratoSelecionado);
      
+     alteraQtdPedido();
+     
+     if (pratoSelecionado && bebidaSelecionada && sobremesaSelecionada) {
+          buttomFinalizarPedido.classList.add("hidden");
+          buttomFinalizarPedidoDepois.classList.remove("hidden");
+     }
+     if (pratoSelecionado === false || bebidaSelecionada === false || sobremesaSelecionada === false){
+          buttomFinalizarPedido.classList.remove("hidden");
+          buttomFinalizarPedidoDepois.classList.add("hidden");
+     }
      
 }
 
@@ -68,11 +72,20 @@ function escolherSegundoPrato() {
      console.log(valorPrato);
 
 
-     escolheBorda(pedidoFirstPlate[1],pedidoFirstPlate[0],pedidoFirstPlate[2],pratoSelecionado);
+     pratoSelecionado = escolheBorda(pedidoFirstPlate[1],pedidoFirstPlate[0],pedidoFirstPlate[2],pratoSelecionado);
      
     
-
+     alteraQtdPedido();
      
+     if (pratoSelecionado && bebidaSelecionada && sobremesaSelecionada) {
+          buttomFinalizarPedido.classList.add("hidden");
+          buttomFinalizarPedidoDepois.classList.remove("hidden");
+     }
+     if (pratoSelecionado === false || bebidaSelecionada === false || sobremesaSelecionada === false){
+          buttomFinalizarPedido.classList.remove("hidden");
+          buttomFinalizarPedidoDepois.classList.add("hidden");
+     }
+  
 
 }
 
@@ -91,9 +104,19 @@ function escolherTerceiroPrato() {
      console.log(valorPrato);
 
 
-     escolheBorda(pedidoFirstPlate[2],pedidoFirstPlate[0],pedidoFirstPlate[1],pratoSelecionado);
+     pratoSelecionado = escolheBorda(pedidoFirstPlate[2],pedidoFirstPlate[0],pedidoFirstPlate[1],pratoSelecionado);
+
+     alteraQtdPedido();
 
 
+     if (pratoSelecionado && bebidaSelecionada && sobremesaSelecionada) {
+          buttomFinalizarPedido.classList.add("hidden");
+          buttomFinalizarPedidoDepois.classList.remove("hidden");
+     }
+     if (pratoSelecionado === false || bebidaSelecionada === false || sobremesaSelecionada === false){
+          buttomFinalizarPedido.classList.remove("hidden");
+          buttomFinalizarPedidoDepois.classList.add("hidden");
+     }
 }
 
 
@@ -107,8 +130,18 @@ function escolherPrimeiroDrink(){
      console.log(valorBebida);
 
 
-     escolheBorda(pedidoSecondPlate[0],pedidoSecondPlate[1],pedidoSecondPlate[2],bebidaSelecionada);
+     bebidaSelecionada = escolheBorda(pedidoSecondPlate[0],pedidoSecondPlate[1],pedidoSecondPlate[2],bebidaSelecionada);
 
+     alteraQtdPedido();
+
+     if (pratoSelecionado && bebidaSelecionada && sobremesaSelecionada) {
+          buttomFinalizarPedido.classList.add("hidden");
+          buttomFinalizarPedidoDepois.classList.remove("hidden");
+     }
+     if (pratoSelecionado === false || bebidaSelecionada === false || sobremesaSelecionada === false){
+          buttomFinalizarPedido.classList.remove("hidden");
+          buttomFinalizarPedidoDepois.classList.add("hidden");
+     }
 }
 
 
@@ -123,8 +156,18 @@ function escolherSegundoDrink(){
      
 
 
-     escolheBorda(pedidoSecondPlate[1],pedidoSecondPlate[0],pedidoSecondPlate[2],bebidaSelecionada);
+     bebidaSelecionada = escolheBorda(pedidoSecondPlate[1],pedidoSecondPlate[0],pedidoSecondPlate[2],bebidaSelecionada);
+     
+     alteraQtdPedido();
 
+     if (pratoSelecionado && bebidaSelecionada && sobremesaSelecionada) {
+          buttomFinalizarPedido.classList.add("hidden");
+          buttomFinalizarPedidoDepois.classList.remove("hidden");
+     }
+     if (pratoSelecionado === false || bebidaSelecionada === false || sobremesaSelecionada === false){
+          buttomFinalizarPedido.classList.remove("hidden");
+          buttomFinalizarPedidoDepois.classList.add("hidden");
+     }
 
 }
 
@@ -138,8 +181,18 @@ function escolherTerceiroDrink(){
      console.log(bebida);
      console.log(valorBebida);
      
-     escolheBorda(pedidoSecondPlate[2],pedidoSecondPlate[1],pedidoSecondPlate[0],bebidaSelecionada);
+     bebidaSelecionada = escolheBorda(pedidoSecondPlate[2],pedidoSecondPlate[1],pedidoSecondPlate[0],bebidaSelecionada);
+     
+     alteraQtdPedido();
 
+     if (pratoSelecionado && bebidaSelecionada && sobremesaSelecionada) {
+          buttomFinalizarPedido.classList.add("hidden");
+          buttomFinalizarPedidoDepois.classList.remove("hidden");
+     }
+     if (pratoSelecionado === false || bebidaSelecionada === false || sobremesaSelecionada === false){
+          buttomFinalizarPedido.classList.remove("hidden");
+          buttomFinalizarPedidoDepois.classList.add("hidden");
+     }
 
 }
 
@@ -152,7 +205,18 @@ function escolherPrimeiraSobremesa(){
      console.log(sobremesa);
      console.log(valorSobremesa);
 
-     escolheBorda(pedidoThirdPlate[0],pedidoThirdPlate[1],pedidoThirdPlate[2],sobremesaSelecionada);
+     sobremesaSelecionada = escolheBorda(pedidoThirdPlate[0],pedidoThirdPlate[1],pedidoThirdPlate[2],sobremesaSelecionada);
+
+     alteraQtdPedido();
+
+     if (pratoSelecionado && bebidaSelecionada && sobremesaSelecionada) {
+          buttomFinalizarPedido.classList.add("hidden");
+          buttomFinalizarPedidoDepois.classList.remove("hidden");
+     }
+     if (pratoSelecionado === false || bebidaSelecionada === false || sobremesaSelecionada === false){
+          buttomFinalizarPedido.classList.remove("hidden");
+          buttomFinalizarPedidoDepois.classList.add("hidden");
+     }
 
 }
 
@@ -165,8 +229,18 @@ function escolherSegundaSobremesa(){
      console.log(sobremesa);
      console.log(valorSobremesa);
 
-     escolheBorda(pedidoThirdPlate[1],pedidoThirdPlate[0],pedidoThirdPlate[2],sobremesaSelecionada);
+     sobremesaSelecionada = escolheBorda(pedidoThirdPlate[1],pedidoThirdPlate[0],pedidoThirdPlate[2],sobremesaSelecionada);
 
+     alteraQtdPedido();
+
+     if (pratoSelecionado && bebidaSelecionada && sobremesaSelecionada) {
+          buttomFinalizarPedido.classList.add("hidden");
+          buttomFinalizarPedidoDepois.classList.remove("hidden");
+     }
+     if (pratoSelecionado === false || bebidaSelecionada === false || sobremesaSelecionada === false){
+          buttomFinalizarPedido.classList.remove("hidden");
+          buttomFinalizarPedidoDepois.classList.add("hidden");
+     }
 
 }
 
@@ -179,24 +253,43 @@ function escolherTerceiraSobremesa(){
      console.log(sobremesa);
      console.log(valorSobremesa);
      
-     escolheBorda(pedidoThirdPlate[2],pedidoThirdPlate[0],pedidoThirdPlate[1],sobremesaSelecionada);
+     sobremesaSelecionada = escolheBorda(pedidoThirdPlate[2],pedidoThirdPlate[0],pedidoThirdPlate[1],sobremesaSelecionada);
 
+     alteraQtdPedido();
+
+     if (pratoSelecionado && bebidaSelecionada && sobremesaSelecionada) {
+          buttomFinalizarPedido.classList.add("hidden");
+          buttomFinalizarPedidoDepois.classList.remove("hidden");
+     }
+     if (pratoSelecionado === false || bebidaSelecionada === false || sobremesaSelecionada === false){
+          buttomFinalizarPedido.classList.remove("hidden");
+          buttomFinalizarPedidoDepois.classList.add("hidden");
+     }
+     
 }
 
 function alteraQtdPedido(){
+     console.log(pratoSelecionado);
      let quantidadeSelecionado = buttomFinalizarPedido.querySelector("span");
 
-     if (pratoSelecionado){
-          qtd += 1;
+     if (pratoSelecionado === true || bebidaSelecionada === true || sobremesaSelecionada === true) {
+          qtd = 1;
+          
      }
-     if (bebidaSelecionada){
-          qtd += 1;
+     if (pratoSelecionado === true && bebidaSelecionada === true || bebidaSelecionada === true && sobremesaSelecionada === true || sobremesaSelecionada === true && pratoSelecionado === true){
+          qtd = 2;
+     }    
+
+     if (pratoSelecionado === false && bebidaSelecionada === false && sobremesaSelecionada === false){
+          qtd = 0;
      }
-     if (sobremesaSelecionada){
-          qtd += 1;
-     }
+
+
+
+     console.log(qtd)
      
      quantidadeSelecionado.innerHTML = qtd;
+     
 }
 
 
@@ -225,4 +318,3 @@ function finalizarPedido(){
      
 }
 
-alteraQtdPedido();
