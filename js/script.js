@@ -12,6 +12,7 @@ const valorBebidaFinalizarPedido = document.querySelector("#valor-bebida");
 const valorSobremesaFinalizarPedido = document.querySelector("#valor-sobremesa");
 const valorTotalFinalizarPedido = document.querySelector("#total-valor");
 
+
 let prato;
 let bebida;
 let sobremesa;
@@ -52,9 +53,7 @@ function escolherPrimeiroPrato() {
 
      let pratoValorList = pedidoFirstPlate[0].getElementsByTagName("span");
      valorPrato = parseFloat(pratoValorList[0].innerText.replace(",", "."));
-     console.log(prato);
-     console.log(valorPrato);
-
+    
      pratoSelecionado = escolheBorda(pedidoFirstPlate[0],pedidoFirstPlate[1],pedidoFirstPlate[2],pratoSelecionado);
      
      alteraQtdPedido();
@@ -76,9 +75,6 @@ function escolherSegundoPrato() {
 
      let pratoValorList = pedidoFirstPlate[1].getElementsByTagName("span");
      valorPrato = parseFloat(pratoValorList[0].innerText.replace(",", "."));
-     console.log(prato);
-     console.log(valorPrato);
-
 
      pratoSelecionado = escolheBorda(pedidoFirstPlate[1],pedidoFirstPlate[0],pedidoFirstPlate[2],pratoSelecionado);
      
@@ -108,10 +104,6 @@ function escolherTerceiroPrato() {
      valorPrato = parseFloat(pratoValorList[0].innerText.replace(",", "."));
 
 
-     console.log(prato);
-     console.log(valorPrato);
-
-
      pratoSelecionado = escolheBorda(pedidoFirstPlate[2],pedidoFirstPlate[0],pedidoFirstPlate[1],pratoSelecionado);
 
      alteraQtdPedido();
@@ -134,8 +126,6 @@ function escolherPrimeiroDrink(){
 
      let bebidaValorList = pedidoSecondPlate[0].getElementsByTagName("span");
      valorBebida = parseFloat(bebidaValorList[0].innerText.replace(",", "."));
-     console.log(bebida);
-     console.log(valorBebida);
 
 
      bebidaSelecionada = escolheBorda(pedidoSecondPlate[0],pedidoSecondPlate[1],pedidoSecondPlate[2],bebidaSelecionada);
@@ -159,8 +149,6 @@ function escolherSegundoDrink(){
      
      let bebidaValorList = pedidoSecondPlate[1].getElementsByTagName("span");
      valorBebida = parseFloat(bebidaValorList[0].innerText.replace(",", "."));
-     console.log(bebida);
-     console.log(valorBebida);
      
 
 
@@ -186,8 +174,6 @@ function escolherTerceiroDrink(){
 
      let bebidaValorList = pedidoSecondPlate[2].getElementsByTagName("span");
      valorBebida = parseFloat(bebidaValorList[0].innerText.replace(",", "."));
-     console.log(bebida);
-     console.log(valorBebida);
      
      bebidaSelecionada = escolheBorda(pedidoSecondPlate[2],pedidoSecondPlate[1],pedidoSecondPlate[0],bebidaSelecionada);
      
@@ -210,8 +196,6 @@ function escolherPrimeiraSobremesa(){
 
      let sobremesaValorList = pedidoThirdPlate[0].getElementsByTagName("span");
      valorSobremesa = parseFloat(sobremesaValorList[0].innerText.replace(",", "."));
-     console.log(sobremesa);
-     console.log(valorSobremesa);
 
      sobremesaSelecionada = escolheBorda(pedidoThirdPlate[0],pedidoThirdPlate[1],pedidoThirdPlate[2],sobremesaSelecionada);
 
@@ -234,8 +218,6 @@ function escolherSegundaSobremesa(){
      
      let sobremesaValorList = pedidoThirdPlate[1].getElementsByTagName("span");
      valorSobremesa = parseFloat(sobremesaValorList[0].innerText.replace(",", "."));
-     console.log(sobremesa);
-     console.log(valorSobremesa);
 
      sobremesaSelecionada = escolheBorda(pedidoThirdPlate[1],pedidoThirdPlate[0],pedidoThirdPlate[2],sobremesaSelecionada);
 
@@ -258,8 +240,6 @@ function escolherTerceiraSobremesa(){
      
      let sobremesaValorList = pedidoThirdPlate[2].getElementsByTagName("span");
      valorSobremesa = parseFloat(sobremesaValorList[0].innerText.replace(",", "."));
-     console.log(sobremesa);
-     console.log(valorSobremesa);
      
      sobremesaSelecionada = escolheBorda(pedidoThirdPlate[2],pedidoThirdPlate[0],pedidoThirdPlate[1],sobremesaSelecionada);
 
@@ -311,7 +291,45 @@ function popupFinalizarPedido(){
      valorTotalFinalizarPedido.innerHTML = "R$ " + calculaValores().toFixed(2);
 
      popupFinalizarPedidoText.classList.remove("hidden");
+}
 
+function popupCancelarPedido(){
+     popupFinalizarPedidoText.classList.add("hidden");
+}
+
+function prosseguirPedido(){
+
+     if (pratoSelecionado === false || bebidaSelecionada == false || sobremesaSelecionada == false){
+          alert("Faltou selecionar um item");
+     }else {
+          popupFinalizarPedido()
+     }
+
+}
+
+function zeraTudo(){
+     pedidoFirstPlate[0].classList.remove("border-check");
+     pedidoFirstPlate[1].classList.remove("border-check");
+     pedidoFirstPlate[2].classList.remove("border-check");
+     pedidoSecondPlate[0].classList.remove("border-check");
+     pedidoSecondPlate[1].classList.remove("border-check");
+     pedidoSecondPlate[2].classList.remove("border-check");
+     pedidoThirdPlate[0].classList.remove("border-check");
+     pedidoThirdPlate[1].classList.remove("border-check");
+     pedidoThirdPlate[2].classList.remove("border-check");
+     
+     pratoSelecionado = false;
+     bebidaSelecionada = false;
+     sobremesaSelecionada = false;
+     qtd = 0;
+
+     
+
+     if (pratoSelecionado === false || bebidaSelecionada === false || sobremesaSelecionada === false){
+          buttomFinalizarPedido.classList.remove("hidden");
+          buttomFinalizarPedidoDepois.classList.add("hidden");
+     }
+     alteraQtdPedido()
 
 }
 
@@ -319,44 +337,33 @@ function finalizarPedido(){
      let nome;
      let endereço;
      let mensagem;
-     let valorTotal = calculaValores();
-
-     
-
-
-     if (pratoSelecionado === false || bebidaSelecionada == false || sobremesaSelecionada == false){
-          alert("Faltou selecionar um item");
+     let valorTotal = calculaValores().toFixed(2);
+     nome = prompt("Qual seu nome?");
+     endereço = prompt("Qual seu endereço?");
+          
+     if (nome === "" || endereço === "" || nome === null || endereço === null){
+          mensagem =  `
+          Olá, gostaria de fazer o pedido:
+          - Prato: ${prato}
+          - Bebida: ${bebida}
+          - Sobremesa: ${sobremesa}
+          Total: R$ ${valorTotal}`
      }else {
-          popupFinalizarPedido()
+          mensagem = `
+          Olá, gostaria de fazer o pedido:
+          - Prato: ${prato}
+          - Bebida: ${bebida}
+          - Sobremesa: ${sobremesa}
+          Total: R$ ${valorTotal}
+          
+          
+          Nome: ${nome}
+          Endereço: ${endereço}`
      }
-          // nome = prompt("Qual seu nome?");
-          // endereço = prompt("Qual seu endereço?");
-          
-          // if (nome === "" || endereço === ""){
-          //      mensagem =  `
-          //      Olá, gostaria de fazer o pedido:
-          //      - Prato: ${prato}
-          //      - Bebida: ${bebida}
-          //      - Sobremesa: ${sobremesa}
-          //      Total: R$ ${valorTotal.toFixed(2)}`
-          // }else {
-          //      mensagem = `
-          //      Olá, gostaria de fazer o pedido:
-          //      - Prato: ${prato}
-          //      - Bebida: ${bebida}
-          //      - Sobremesa: ${sobremesa}
-          //      Total: R$ ${valorTotal.toFixed(2)}
-          
-          
-          //      Nome: ${nome}
-          //      Endereço: ${endereço}`
-          // }
           
 
-          // window.open(`https://wa.me/+5521999999999?text=${encodeURIComponent(mensagem)}`);
-     
-
-    
-     
+     window.open(`https://wa.me/+5521999999999?text=${encodeURIComponent(mensagem)}`);
+     alert("Pedido Finalizado!");
+     popupCancelarPedido();
+     zeraTudo();
 }
-

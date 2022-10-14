@@ -100,10 +100,10 @@
      </main>
 
      <footer>
-          <div onclick="finalizarPedido()"  class="finalizar-pedido ">
+          <div onclick="prosseguirPedido()"  class="finalizar-pedido ">
                <h1>Seleciona os <span>0</span> itens para fechar o pedido</h1>
           </div>
-          <div onclick="finalizarPedido()" class="finaliza-depois hidden">
+          <div onclick="prosseguirPedido()" class="finaliza-depois hidden">
                <h1>Fechar pedido</h1>
           </div>
      </footer>
@@ -128,8 +128,8 @@
                     <h1>TOTAL</h1>
                     <h1 id="total-valor">27,70</h1>
                </div>
-               <button id="button-pedido-revisado">Tudo certo, pode pedir!</button>
-               <h2 id="button-pedido-cancelado">Cancelar</h2>
+               <button onclick="finalizarPedido()">Tudo certo, pode pedir!</button>
+               <h2 onclick="popupCancelarPedido()" >Cancelar</h2>
           </div>
           </div>
      </div>
