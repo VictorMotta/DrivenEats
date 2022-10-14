@@ -10,10 +10,11 @@ let sobremesa;
 let valorPrato;
 let valorBebida;
 let valorSobremesa;
-let pratoSelecionado;
-let bebidaSelecionada;
-let sobremesaSelecionada;
+let pratoSelecionado = false;
+let bebidaSelecionada = false;
+let sobremesaSelecionada = false;
 let qtd = 0;
+
 
 
 
@@ -294,23 +295,41 @@ function alteraQtdPedido(){
 
 
 function finalizarPedido(){
-     
-
+     let nome;
+     let endereço;
+     let mensagem;
      let valorTotal = calculaValores();
 
-     let mensagem = `
-     Olá, gostaria de fazer o pedido:
-     - Prato: ${prato}
-     - Bebida: ${bebida}
-     - Sobremesa: ${sobremesa}
-     Total: R$ ${valorTotal.toFixed(2)}`
-
      
+
 
      if (pratoSelecionado === false || bebidaSelecionada == false || sobremesaSelecionada == false){
           alert("Faltou selecionar um item");
-     }
-     else {
+     }else {
+          nome = prompt("Qual seu nome?");
+          endereço = prompt("Qual seu endereço?");
+          
+          if (nome === "" || endereço === ""){
+               mensagem =  `
+               Olá, gostaria de fazer o pedido:
+               - Prato: ${prato}
+               - Bebida: ${bebida}
+               - Sobremesa: ${sobremesa}
+               Total: R$ ${valorTotal.toFixed(2)}`
+          }else {
+               mensagem = `
+               Olá, gostaria de fazer o pedido:
+               - Prato: ${prato}
+               - Bebida: ${bebida}
+               - Sobremesa: ${sobremesa}
+               Total: R$ ${valorTotal.toFixed(2)}
+          
+          
+               Nome: ${nome}
+               Endereço: ${endereço}`
+          }
+          
+
           window.open(`https://wa.me/+5521999999999?text=${encodeURIComponent(mensagem)}`);
      }
 
