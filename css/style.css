@@ -350,3 +350,9 @@ footer {
      color: #fff;
 
 }
+.finalizado-popup {
+     top: 15%;
+     width: 80%;
+     height: 50px;
+     background-color: #50D074;
+}

@@ -14,7 +14,8 @@ const valorTotalFinalizarPedido = document.querySelector("#total-valor");
 const containerInfoCliente = document.querySelector(".informacoes-cliente-container");
 const inputNomeCliente = document.querySelector("#nome-cliente");
 const inputEnderecoCliente = document.querySelector("#endereco-cliente");
-
+const buttonsInfoCliente = document.querySelector(".buttons-info-cliente");
+const textInfoFinalizaPedido = document.querySelector(".finalizado-popup");
 
 
 let prato;
@@ -328,6 +329,9 @@ function zeraTudo(){
      }
      alteraQtdPedido()
 
+     popupCancelarPedido(containerInfoCliente);
+     buttonsInfoCliente.classList.remove("hidden");
+     textInfoFinalizaPedido.classList.add("hidden");
 }
 
 function infoClientes(){
@@ -336,13 +340,15 @@ function infoClientes(){
 }
 
 function finalizarPedido(){
+     
      nome = inputNomeCliente.value;
      endereco = inputEnderecoCliente.value;
      let mensagem;
      let valorTotal = calculaValores().toFixed(2);
      
      
-          
+     
+
      if (nome === "" || endereco === "" || nome === null || endereco === null){
           mensagem =  `
           Olá, gostaria de fazer o pedido:
@@ -367,11 +373,10 @@ function finalizarPedido(){
           window.open(`https://wa.me/+5521999999999?text=${encodeURIComponent(mensagem)}`);
      }
           
+     popupInfoFinalizaPedido();
 
+     setTimeout(zeraTudo , 5000);
      
-     alert("Pedido Finalizado!");
-     popupCancelarPedido(containerInfoCliente);
-     zeraTudo();
 }
 
 function popupCancelarPedido(popup){
@@ -392,5 +397,9 @@ function popupFinalizarPedido(){
      popupFinalizarPedidoText.classList.remove("hidden");
 }
 
+function popupInfoFinalizaPedido(){
+     buttonsInfoCliente.classList.add("hidden");
+     textInfoFinalizaPedido.classList.remove("hidden");
+}
 
 
