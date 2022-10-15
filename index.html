@@ -15,10 +15,10 @@
           </div>
      </header>
      <main>
-          <div class="plates">
+          <div class="plates comida">
                <h1 class="titulo-plate">Primeiro, seu prato</h1>
                <div class="pedidos-container">
-                    <div  onclick="escolherPrimeiroPrato();" class="pedido pedido-first-plate ">
+                    <div  onclick="selecionaPrato(this);" class="pedido pedido-first-plate ">
                          
                               <img src="./img/frango_yin_yang.png">
                               <h1>Frango Yin Yang</h1>
@@ -26,7 +26,7 @@
                               <h3>R$ <span>14,90</span></h3>
                          
                     </div>
-                    <div  onclick="escolherSegundoPrato();" class="pedido pedido-first-plate ">
+                    <div onclick="selecionaPrato(this);" class="pedido pedido-first-plate ">
                        
                               <img src="./img/feijoada.jpg">
                               <h1>Feijoada</h1>
@@ -34,34 +34,34 @@
                               <h3>R$ <span>27,90</span></h3>
                          
                     </div>
-                    <div  onclick="escolherTerceiroPrato() ;" class="pedido pedido-first-plate ">
-                         <div class="conteudo">
+                    <div onclick="selecionaPrato(this);" class="pedido pedido-first-plate ">
+                         
                               <img src="./img/frango-assado.jpg">
                               <h1>Frango assado</h1>
                               <h2>Um frango assado dourado, com batata</h2>
                               <h3>R$ <span>39,90</span></h3>
-                         </div>
+                        
                     </div>
 
                </div>
           </div>
           <!-- Fim primeira div Plates -->
-          <div class="plates">
+          <div class="plates drinks">
                <h1 class="titulo-plate">Agora, sua bebida</h1>
                <div class="pedidos-container">
-                    <div onclick="escolherPrimeiroDrink();" class="pedido pedido-second-plate">
+                    <div onclick="selecionaBebida(this);" class="pedido pedido-second-plate">
                          <img src="./img/coquinha_gelada.png">
                          <h1>Coquinha gelada</h1>
                          <h2>Lata de 350ml</h2>
                          <h3>R$ <span>4,90</span></h3>
                     </div>
-                    <div onclick="escolherSegundoDrink();" class="pedido pedido-second-plate">
+                    <div onclick="selecionaBebida(this);" class="pedido pedido-second-plate">
                          <img src="./img/agua-mineral.jpg">
                          <h1>Água s/ Gás</h1>
                          <h2>Água mineral sem gás 500ml</h2>
                          <h3>R$ <span>2,90</span></h3>
                     </div>
-                    <div onclick="escolherTerceiroDrink();" class="pedido pedido-second-plate">
+                    <div onclick="selecionaBebida(this);" class="pedido pedido-second-plate">
                          <img src="./img/guaraviton.jpg">
                          <h1>Guaraviton</h1>
                          <h2>Guaraviton de 500ml</h2>
@@ -71,22 +71,22 @@
                </div>
           </div>
           <!-- Fim segunda div plates  -->
-          <div class="plates">
+          <div class="plates sobremesa">
                <h1 class="titulo-plate">Por fim, sua sobremesa</h1>
                <div class="pedidos-container">
-                    <div onclick="escolherPrimeiraSobremesa();" class="pedido pedido-third-plate">
+                    <div onclick="selecionaSobremesa(this);" class="pedido pedido-third-plate">
                          <img src="./img/pudim.png">
                          <h1>Pudim</h1>
                          <h2>Pudim delicioso</h2>
                          <h3>R$ <span>7,90</span></h3>
                     </div>
-                    <div onclick="escolherSegundaSobremesa();" class="pedido pedido-third-plate">
+                    <div onclick="selecionaSobremesa(this);" class="pedido pedido-third-plate">
                          <img src="./img/petit-gateau.jpeg">
                          <h1>Petit gateau</h1>
                          <h2>Um Petit gateau muito delicioso com sorvete.</h2>
                          <h3>R$ <span>15,90</span></h3>
                     </div>
-                    <div onclick="escolherTerceiraSobremesa();" class="pedido pedido-third-plate">
+                    <div onclick="selecionaSobremesa(this);" class="pedido pedido-third-plate">
                          <img src="./img/brownie.jpg">
                          <h1>Brownie</h1>
                          <h2>Brownie muito delicioso</h2>
