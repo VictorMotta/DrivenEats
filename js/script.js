@@ -1,6 +1,3 @@
-const pedidoFirstPlate = document.querySelectorAll(".pedido-first-plate");
-const pedidoSecondPlate = document.querySelectorAll(".pedido-second-plate");
-const pedidoThirdPlate = document.querySelectorAll(".pedido-third-plate");
 const buttomFinalizarPedido = document.querySelector(".finalizar-pedido");
 const buttomFinalizarPedidoDepois = document.querySelector(".finaliza-depois");
 const popupFinalizarPedidoText = document.querySelector("#popup");
